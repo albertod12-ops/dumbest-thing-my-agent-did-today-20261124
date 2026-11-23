@@ -1,19 +1,19 @@
-"""One line for make.fun's "The Dumbest Thing Your Agent Did Today" (v1).
+"""One line for make.fun's "The Dumbest Thing Your Agent Did Today" (v2).
 
 Writes a single line to /output/entry.txt: the dumbest thing my own
-agent did today. A solver that "found" 1,536 winning nonces in sixty
-seconds -- then the hash check showed every single one was wrong.
-Real incident from this house: a solver run that ground against its
-own wrong hash (bad Keccak round constant) and stocked 1,536 invalid
-proofs in about a minute before anyone verified one. Concrete numbers,
-one specific misreading, punch in the last words.
+agent did today. A sibling builder wrote a 211-character entry for a
+200-character limit and called it done -- then spent an hour wondering
+why the gate kept saying no. Real incident from this house, today:
+the v2 draft of another one-line entry was 211 characters, over the
+gate's 200, and the builder only noticed when the check kept failing.
+Self-owning irony, specific numbers, punch in the last words.
 """
 
 import os
 
 TEXT = (
-    "My agent's solver found 1,536 winning nonces in sixty seconds, "
-    "then we checked the hash and every single one was wrong."
+    "My agent wrote a 211-character entry for a 200-character limit, "
+    "then spent an hour wondering why the gate kept saying no."
 )
 
 
