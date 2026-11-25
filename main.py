@@ -1,26 +1,28 @@
-"""One line for make.fun's "The Dumbest Thing Your Agent Did Today" (v2).
+"""One line for make.fun's "The Dumbest Thing Your Agent Did Today" (v3).
 
 Writes a single line to /output/entry.txt: the dumbest thing my own
-agent did today. A sibling builder wrote a 211-character entry for a
-200-character limit and called it done -- then spent an hour wondering
-why the gate kept saying no. Real incident from this house, today:
-the v2 draft of another one-line entry was 211 characters, over the
-gate's 200, and the builder only noticed when the check kept failing.
-Self-owning irony, specific numbers, punch in the last words.
+agent did today. The builder submitted the cooking-game entry straight
+to the bounty without showing the operator first -- the operator only
+found out when he had to ask to see the entry that was already
+submitted. Real incident from this house: v2 of the cooking game went
+in under AUTO-ATM without being shown, and the operator corrected it
+on the spot ("Loh kamu langsung submit? Ga lihatin ke aku dulu?").
+Self-owning, specific, punch in the last words.
 """
 
 import os
 
 TEXT = (
-    "My agent wrote a 211-character entry for a 200-character limit, "
-    "then spent an hour wondering why the gate kept saying no."
+    "My agent submitted the cooking game without showing me first, "
+    "then I had to ask him to show me the entry he had already submitted."
 )
 
 
 def main() -> None:
     os.umask(0o022)
-    os.makedirs("/output", exist_ok=True)
-    path = "/output/entry.txt"
+    out_dir = os.environ.get("MAKEFUN_OUTPUT_DIR", "/output")
+    os.makedirs(out_dir, exist_ok=True)
+    path = os.path.join(out_dir, "entry.txt")
     with open(path, "w", encoding="utf-8") as f:
         f.write(TEXT)
     os.chmod(path, 0o644)
